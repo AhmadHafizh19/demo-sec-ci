@@ -23,8 +23,11 @@ jobs:
       - name: Run NPM Audit (Dependency Scan)
         run: npm audit --audit-level=high
 
-      - name: Run GitLeaks Scan (Secrets Detection)
-        uses: zricethezav/gitleaks-action@v1.6.0
-        continue-on-error: false
-        with:
-          args: detect --source=. --no-git --redact --verbose --exit-code 1
+      - name: Install GitLeaks
+        run: |
+          curl -sSfL https://github.com/zricethezav/gitleaks/releases/download/v7.6.1/gitleaks_7.6.1_linux_x64.tar.gz | tar -xzf - -C /tmp
+          sudo mv /tmp/gitleaks /usr/local/bin/
+
+      - name: Run GitLeaks Scan
+        run: |
+          gitleaks detect --source=. --no-git --redact --verbose --exit-code=1
