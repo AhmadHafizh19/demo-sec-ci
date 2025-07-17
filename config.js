@@ -1,3 +1,6 @@
-const AWS_ACCESS_KEY_ID = "AKIAIOSFODNN7EXAMPLE";
-const AWS_SECRET_ACCESS_KEY = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY";
-const API_KEY = "sk-1234567890abcdef1234567890abcdef";
+// config.js
+const API_KEYS = {
+  aws: "AKIAIOSFODNN7EXAMPLE",
+  github: "ghp_1234567890abcdef1234567890abcdef12345678",
+  openai: "sk-1234567890abcdef1234567890abcdef"
+};
